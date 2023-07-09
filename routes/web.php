@@ -53,6 +53,7 @@ Route::resource('movie',MovieController::class);
 
 
 //api
-Route::get('/get-data-from-api',[ApiController::class,'getDataFromApi']);
-
+Route::get('/get-list-movie-leech-from-api',[ApiController::class,'getDataFromApi'])->name('getphimleech');
+Route::get('/get-movie-leech/{slug}',[ApiController::class,'getmoviebyslug'])->name('getmoviebyslug');
+Route::post('/synx-phim',[ApiController::class,'synxphim'])->name('synx-phim');
 

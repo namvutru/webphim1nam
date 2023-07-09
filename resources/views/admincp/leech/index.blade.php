@@ -29,9 +29,39 @@
                             </thead>
                             <tbody class="order_position">
 
-                            @foreach($list as $key =>$movi)
-                                <tr id="{{$movi->id}}">
+                            @foreach($movie_leech as $key =>$movi)
+                                <tr id="{{$movi['_id']}}">
                                     <th scope="row">{{$key}}</th>
+
+
+{{--                                    "_id": "624c1536c78eb57bbfe486ba",--}}
+{{--                                    "name": "Hoàng hậu Ki",--}}
+{{--                                    "origin_name": "The Empress Kia",--}}
+{{--                                    "thumb_url": "hoang-hau-ki-thumb.jpg",--}}
+{{--                                    "slug": "hoang-hau-ki",--}}
+{{--                                    "year": 2013,--}}
+{{--                                    "poster_url": "hoang-hau-ki-poster.jpg"--}}
+                                    <td>{{$movi['name']}}</td>
+                                    <td>{{$movi['slug']}}</td>
+                                    <td>{{$movi['origin_name']}}</td>
+                                    <td>
+                                        <img width="50" src="{{'https://img.ophim8.cc/uploads/movies/'.$movi['thumb_url']}}">
+                                    </td>
+                                    <td>
+                                        <img width="50" src="{{'https://img.ophim8.cc/uploads/movies/'.$movi['poster_url']}}">
+                                    </td>
+                                    <td>
+                                        {{$movi['year']}}
+                                    </td>
+                                    <td>
+{{--                                        <form action="{{url('episode',['id'=> $epi->id])}}" method="post">--}}
+{{--                                            @method('delete')--}}
+{{--                                            @csrf--}}
+{{--                                            <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirmdelete();"/>--}}
+{{--                                        </form>--}}
+                                        <a href="{{route('getmoviebyslug',$movi['slug'])}}" class="btn bg-warning">Edit</a>
+                                        <a href="{{route('getmoviebyslug',$movi['slug'])}}" class="btn bg-warning">Sync</a>
+                                    </td>
 
                                 </tr>
                             @endforeach

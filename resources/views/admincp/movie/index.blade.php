@@ -35,7 +35,7 @@
                                 <th scope="col">Subtitle</th>
                                 <th scope="col">Year</th>
                                 <th scope="col">Top Views</th>
-                                <th scope="col">Sesion</th>
+                                <th scope="col">Season</th>
                                 <th scope="col">Date Create</th>
                                 <th scope="col">Date Update</th>
 
@@ -52,7 +52,7 @@
                                     <td>{{$movi->origintitle}}</td>
                                     <td>{{$movi->duration}}</td>
                                     <td>{{$movi->slug}}</td>
-                                    <td><img width="60"  src="{{asset('/uploads/movie/'.$movi->image)}}"/></td>
+                                    <td><img width="60"  src="{{$movi->image}}"/></td>
                                     <td>{{$movi->sumepisode}}
                                     {{--                                    <td>{{$movi->description}}</td>--}}
                                     <td>{{$movi->tags}}</td>
