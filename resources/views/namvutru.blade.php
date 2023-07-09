@@ -97,19 +97,19 @@
                 <div class="menu-menu_1-container">
                     <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
                         <li class="current-menu-item active"><a title="Trang Chủ" href="{{route('homepage')}}">Trang Chủ</a></li>
-{{--                        @foreach($category as $key => $cate)--}}
-{{--                        <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>--}}
-{{--                        @endforeach--}}
-                        <li class="mega dropdown">
-                            <a title="Danh mục" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Danh mục <span class="caret"></span></a>
+                        @foreach($category as $key => $cate)
+                        <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
+                        @endforeach
+{{--                        <li class="mega dropdown">--}}
+{{--                            <a title="Danh mục" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Danh mục <span class="caret"></span></a>--}}
 
-                            <ul role="menu" class=" dropdown-menu">
-                                @foreach($category as $key => $cate)
-                                    <li><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
-                                @endforeach
-                            </ul>
+{{--                            <ul role="menu" class=" dropdown-menu">--}}
+{{--                                @foreach($category as $key => $cate)--}}
+{{--                                    <li><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>--}}
+{{--                                @endforeach--}}
+{{--                            </ul>--}}
 
-                        </li>
+{{--                        </li>--}}
 {{--                        <li class="mega dropdown">--}}
 {{--                            <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>--}}
 {{--                            <ul role="menu" class=" dropdown-menu">--}}

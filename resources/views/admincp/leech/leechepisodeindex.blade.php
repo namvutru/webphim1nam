@@ -47,7 +47,7 @@
                                     {{--                                    "year": 2013,--}}
                                     {{--                                    "poster_url": "hoang-hau-ki-poster.jpg"--}}
                                     <td>{{$epi->episode}}</td>
-                                    <td>{!! $epi->linkphim !!}</td>
+                                    <td>{{ $epi->linkphim }}</td>
                                     <td>
                                         {{--                                        <form action="{{url('episode',['id'=> $epi->id])}}" method="post">--}}
                                         {{--                                            @method('delete')--}}
