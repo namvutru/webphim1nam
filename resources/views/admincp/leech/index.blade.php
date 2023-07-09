@@ -13,6 +13,17 @@
                             </div>
                         @endif
                         <a href="{{ route('movie.create')}}">Thêm phim</a>
+                            <form action="{{route('searchmoviebyslug')}}" method="get" >
+                            <div class="form-group">
+                                <label id="title">Nhập tên phim chính xác </label>
+                                <input type="text" name="title" id="slug"  class="form-control" onkeyup="ChangeToSlug()" placeholder="...">
+                            </div>
+                            <div class="form-group">
+                                <label id="slug">Slug</label>
+                                <input type="text" name="slug"  id="convert_slug" class="form-control" >
+                            </div>
+                                <input type="submit" value="Tìm kiếm">
+                            </form>
 
                         <table class="table" id="tablephim">
                             <thead>

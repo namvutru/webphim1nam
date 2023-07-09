@@ -28,7 +28,7 @@
                     </div>
                     <div class="movie_info col-xs-12">
                         <div class="movie-poster col-md-3">
-                            <img class="movie-thumb" src="{{asset('uploads/movie/'.$movie->image)}}" alt="{{$movie->title}}">
+                            <img class="movie-thumb" src="{{$movie->image}}" alt="{{$movie->title}}">
                             @if($movie->resolution!=4)
                             <div class="bwa-content">
                                 <div class="loader"></div>
@@ -166,7 +166,7 @@
                         <article class="thumb grid-item post-38494">
                             <div class="halim-item">
                                 <a class="halim-thumb" href="{{route('movie',$phimh->slug)}}" title="{{$phimh->title}}">
-                                    <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$phimh->image)}}" alt="Image Phim" title="Image Phim"></figure>
+                                    <figure><img class="lazy img-responsive" src="{{$phimh->image}}" alt="{{$phimh->title}}" title="{{$phimh->title}}"></figure>
                                     <span class="status">
                                          @if($phimh->resolution==0)
                                             HD

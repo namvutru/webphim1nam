@@ -48,9 +48,11 @@
                     <div class="col-xs-12">
                             <div class="form-group form-timkiem">
                                 <div class="input-group col-xs-12" >
-                                    <form action="{{route('tim-kiem')}}" method="get">
-                                    <input  id="timkiem" type="text" name="search" class="form-control" placeholder="Tìm kiếm phim..." autocomplete="off" required>
-                                    <button class="btn btn-primary" name="btnsearch">Tìm kiếm</button>
+                                    <form action="{{route('tim-kiem')}}" class="d-flex" method="get">
+                                        <span class="input-group-btn">
+                                    <input  id="timkiem" type="text" name="search" class="form-control" placeholder="Tìm kiếm phim..." autocomplete="off" required><button type="submit" class="btn btn-primary" name="btnsearch">Tìm kiếm</button>
+                                    </span>
+
                                     </form>
 
                                 </div>
@@ -95,9 +97,19 @@
                 <div class="menu-menu_1-container">
                     <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
                         <li class="current-menu-item active"><a title="Trang Chủ" href="{{route('homepage')}}">Trang Chủ</a></li>
-                        @foreach($category as $key => $cate)
-                        <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
-                        @endforeach
+{{--                        @foreach($category as $key => $cate)--}}
+{{--                        <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>--}}
+{{--                        @endforeach--}}
+                        <li class="mega dropdown">
+                            <a title="Danh mục" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Danh mục <span class="caret"></span></a>
+
+                            <ul role="menu" class=" dropdown-menu">
+                                @foreach($category as $key => $cate)
+                                    <li><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
+                                @endforeach
+                            </ul>
+
+                        </li>
 {{--                        <li class="mega dropdown">--}}
 {{--                            <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>--}}
 {{--                            <ul role="menu" class=" dropdown-menu">--}}

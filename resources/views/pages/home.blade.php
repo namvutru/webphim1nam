@@ -46,7 +46,7 @@
             <article class="thumb grid-item post-38494">
                 <div class="halim-item">
                     <a class="halim-thumb" href="{{route('movie',$phimh->slug)}}" title="{{$phimh->title}}">
-                        <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$phimh->image)}}" alt="Image Phim" title="Image Phim"></figure>
+                        <figure><img class="lazy img-responsive" src="{{$phimh->image}}" alt="{{$phimh->title}}" title="{{$phimh->title}}"></figure>
                         <span class="status">
                              @if($phimh->resolution==0)
                                 HD
@@ -102,7 +102,7 @@
                 <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                     <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$movi->slug)}}">
-                            <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$movi->image)}}" alt="{{$movi->title}}" title="{{$movi->title}}"></figure>
+                            <figure><img class="lazy img-responsive" src="{{$movi->image}}" alt="{{$movi->title}}" title="{{$movi->title}}"></figure>
                             <span class="status">
                                   @if($movi->resolution==0)
                                     HD

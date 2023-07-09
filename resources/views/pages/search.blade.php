@@ -23,7 +23,7 @@
                         <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
                             <div class="halim-item">
                                 <a class="halim-thumb" href="{{route('movie',$movi->slug)}}" title="{{$movi->title}}">
-                                    <figure><img class="lazy img-responsive" src="{{asset('uploads/movie/'.$movi->image)}}" alt="VŨNG LẦY PHẦN 1" title="VŨNG LẦY PHẦN 1"></figure>
+                                    <figure><img class="lazy img-responsive" src="{{$movi->image}}" alt="{{$movi->title}}" title="{{$movi->title}}"></figure>
                                     <span class="status">
                                @if($movi->resolution==0)
                                             HD

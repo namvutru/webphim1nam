@@ -13,7 +13,7 @@
                     <div class="item post-37176">
                         <a href="{{route('movie',$movi->slug)}}" title="{{$movi->title}}">
                             <div class="item-link">
-                                <img src="{{asset('uploads/movie/'.$movi->image)}}" class="lazy post-thumb" alt="{{$movi->title}}" title="{{$movi->title}}" />
+                                <img src="{{$movi->image}}" class="lazy post-thumb" alt="{{$movi->title}}" title="{{$movi->title}}" />
                                 <span class="is_trailer">
                                      @if($movi->resolution==0)
                                         <td>HD</td>
@@ -60,7 +60,7 @@
                         <div class="item post-37176">
                             <a href="{{route('movie',$movi->slug)}}" title="{{$movi->title}}">
                                 <div class="item-link">
-                                    <img src="{{asset('uploads/movie/'.$movi->image)}}" class="lazy post-thumb" alt="{{$movi->title}}" title="{{$movi->title}}" />
+                                    <img src="{{$movi->image}}" class="lazy post-thumb" alt="{{$movi->title}}" title="{{$movi->title}}" />
                                     <span class="is_trailer">
                                      @if($movi->resolution==0)
                                             <td>HD</td>

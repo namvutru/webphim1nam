@@ -24,7 +24,7 @@
                 <a class="nav-link" href="{{route('episode.create')}}">Tập phim</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('getphimleech')}}">Clone phim</a>
+                <a class="nav-link" href="{{route('getphimleech','1')}}">Clone phim</a>
             </li>
 {{--            <li class="nav-item dropdown">--}}
 {{--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
