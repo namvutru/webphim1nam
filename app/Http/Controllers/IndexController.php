@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Info;
 use App\Models\Movie_Genre;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -18,6 +19,7 @@ class IndexController extends Controller
 {
     //
     public function home(){
+        $info = Info::find(1);
         $phimhot = Movie::where('phimhot',1)->where('status',1)->orderBy('dateupdate','DESC')->get();
         $phimhot_sidebar= Movie::where('phimhot',1)->where('status',1)->orderBy('dateupdate','DESC')->take(30)->get();
         $phimhot_trailer= Movie::where('resolution',4)->where('status',1)->orderBy('dateupdate','DESC')->take(10)->get();
@@ -25,7 +27,7 @@ class IndexController extends Controller
         $country = Country::all();
         $genre = Genre::all();
         $category_home = Category::with('movie')->orderBy('position','asc')->where('status',1)->get();
-        return view('pages.home',compact('category','genre','country','category_home','phimhot','phimhot_sidebar','phimhot_trailer'));
+        return view('pages.home',compact('category','genre','country','category_home','phimhot','phimhot_sidebar','phimhot_trailer','info'));
     }
     public function genre($slug){
 

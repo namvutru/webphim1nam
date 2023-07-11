@@ -11,6 +11,7 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\InfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::resource('genre', GenreController::class);
 Route::resource('country', CountryController::class);
 Route::resource('episode', EpisodeController::class);
 Route::resource('movie',MovieController::class);
+Route::resource('info', \App\Http\Controllers\InfoController::class);
 
 
 //api

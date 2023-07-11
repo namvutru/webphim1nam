@@ -41,7 +41,9 @@
     <div class="container">
         <div class="row" id="headwrap">
             <div class="col-md-3 col-sm-6 slogan">
-                <p class="site-title"><a class="logo" href="" title="phim hay ">Phim Hay</a></p>
+                <p class=""><a href="" title="phim hay ">
+                        <img src="{{asset('/uploads/logo/'.$info->logo)}}">
+                    </a></p>
             </div>
             <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                 <div class="header-nav">
