@@ -17,25 +17,53 @@
                 <select name="category" class="form-control" aria-label=".form-select-sm example">
                     <option value="">Chọn danh mục</option>
                     @foreach($category as $key =>$cate)
-                        <option value="{{$cate->id}}">{{$cate->title}}</option>
+                        @if(isset($category_filter))
+                            @if($category_filter==$cate->id)
+                                <option value="{{$cate->id}}" selected>{{$cate->title}}</option>
+                            @else
+                                <option value="{{$cate->id}}">{{$cate->title}}</option>
+                            @endif
+                        @else
+                            <option value="{{$cate->id}}">{{$cate->title}}</option>
+                        @endif
                     @endforeach
                 </select>
-                <select name="genre" class="form-control" aria-label=".form-select-sm example">
-                    <option value="" >Chọn thể loại</option>
-                    @foreach($genre as $key =>$gen)
-                        <option value="{{$gen->id}}">{{$gen->title}}</option>
-                    @endforeach
-                </select>
+{{--                <select name="genre" class="form-control" aria-label=".form-select-sm example">--}}
+{{--                    <option value="" >Chọn thể loại</option>--}}
+{{--                    @foreach($genre as $key =>$gen)--}}
+{{--                        <option value="{{$gen->id}}">{{$gen->title}}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
                 <select name="country" class="form-control" aria-label=".form-select-sm example">
                     <option value="">Chọn quốc gia</option>
                     @foreach($country as $key =>$coun)
-                        <option value="{{$coun->id}}">{{$coun->title}}</option>
+                        @if(isset($country_filter))
+                            @if($country_filter==$coun->id)
+                                <option value="{{$coun->id}}" selected>{{$coun->title}}</option>
+                            @else
+                                <option value="{{$coun->id}}">{{$coun->title}}</option>
+                            @endif
+                        @else
+                            <option value="{{$coun->id}}">{{$coun->title}}</option>
+                        @endif
                     @endforeach
                 </select>
                 <select name="year" class="form-control" aria-label=".form-select-sm example">
                     <option value="">Chọn năm</option>
                     @for($x = 2023; $x >= 1970; $x--)
-                        <option value="{{$x}}">{{$x}}</option>
+                        @if(isset($year_filter))
+                            @if($year_filter==$x)
+                                <option value="{{$x}}" selected>{{$x}}</option>
+                            @else
+                                <option value="{{$x}}">{{$x}}</option>
+                            @endif
+
+                        @else
+                            <option value="{{$x}}">{{$x}}</option>
+                        @endif
+
+
+
                     @endfor
                 </select>
                 <button class="btn btn-sm btn-default">Lọc phim</button>

@@ -98,7 +98,9 @@
                 </a>
             </div>
             <div id="halim-advanced-widget-2-ajax-box" class="halim_box">
-                @foreach($cate_home->movie->take(12) as $key=> $movi)
+                @foreach($movie_cate as $key=> $movi)
+                    @php $x=0 @endphp
+                    @if($movi->category_id ==$cate_home->id)
                 <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                     <div class="halim-item">
                         <a class="halim-thumb" href="{{route('movie',$movi->slug)}}">
@@ -142,6 +144,12 @@
                         </a>
                     </div>
                 </article>
+                        @php $x++ @endphp
+                        @if($x==12)
+                            @break
+                        @endif
+                    @endif
+                    @php $x=0 @endphp
                 @endforeach
 
             </div>

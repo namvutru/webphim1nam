@@ -26,8 +26,9 @@ class IndexController extends Controller
         $category = Category::orderBy('position','asc')->where('status',1)->get();
         $country = Country::all();
         $genre = Genre::all();
+        $movie_cate = Movie::orderBy('dateupdate','desc')->where('status',1)->get();
         $category_home = Category::with('movie')->orderBy('position','asc')->where('status',1)->get();
-        return view('pages.home',compact('category','genre','country','category_home','phimhot','phimhot_sidebar','phimhot_trailer','info'));
+        return view('pages.home',compact('category','genre','country','category_home','phimhot','phimhot_sidebar','phimhot_trailer','info','movie_cate'));
     }
     public function genre($slug){
         $info = Info::find(1);
@@ -159,10 +160,10 @@ class IndexController extends Controller
 
 
         $category_filter = $data['category'];
-        $genre_filter = $data['genre'];
+//        $genre_filter = $data['genre'];
         $year_filter = $data['year'];
         $country_filter = $data['country'];
-        if(!$country_filter && !$genre_filter && !$category_filter && !$year_filter){
+        if(!$country_filter && !$category_filter && !$year_filter){
             return redirect()->back();
         }
 
@@ -184,7 +185,7 @@ class IndexController extends Controller
 //        }
         $movie = Movie::where('category_id','LIKE','%'.$category_filter.'%')->where('country_id','LIKE','%'.$country_filter.'%')->where('year','LIKE','%'.$year_filter.'%')->orderBy('dateupdate','desc')->paginate(30);
 
-        return view('pages.filter_movie',compact('info','category','genre','country','movie','phimhot_sidebar','phimhot_trailer'));
+        return view('pages.filter_movie',compact('info','category','genre','country','movie','phimhot_sidebar','phimhot_trailer','category_filter','country_filter','year_filter'));
 
 
     }

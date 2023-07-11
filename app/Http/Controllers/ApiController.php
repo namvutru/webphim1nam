@@ -181,7 +181,7 @@ class ApiController extends Controller
             if ($catego == 'single') {
                 $movie->category_id = 2;
             } elseif ($catego == 'series') {
-                $movie->category_id = 0;
+                $movie->category_id = 7;
             } elseif ($catego == 'hoathinh') {
                 $movie->category_id = 5;
             } else {

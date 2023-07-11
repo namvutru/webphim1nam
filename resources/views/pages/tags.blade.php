@@ -17,6 +17,7 @@
         </div>
         <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
             <section>
+                @include('pages.include.filter')
                 <div class="section-bar clearfix">
                     <h1 class="section-title"><span>TAG: {{$tag}}</span></h1>
                 </div>

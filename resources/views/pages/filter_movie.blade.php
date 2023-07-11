@@ -5,7 +5,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-6">
-                        <div class="yoast_breadcrumb hidden-xs"><span><span><a href=""></a><span class="breadcrumb_last" aria-current="page">Lọc phim</span></span></span></div>
+                        <div class="yoast_breadcrumb hidden-xs"><span>Lọc phim<span><a href=""></a><span class="breadcrumb_last" aria-current="page"></span></span></span></div>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="text-center">
-{{--                    {!!$movie->links("pagination::bootstrap-4")!!}--}}
+                    {!!$movie->links("pagination::bootstrap-4")!!}
                 </div>
             </section>
         </main>
