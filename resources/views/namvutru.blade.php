@@ -42,7 +42,7 @@
         <div class="row" id="headwrap">
             <div class="col-md-3 col-sm-6 slogan">
                 <p class=""><a href="" title="phim hay ">
-                        <img src="{{asset('/uploads/logo/'.$info->logo)}}">
+                        <img width="200" src="{{asset('/uploads/logo/'.$info->logo)}}">
                     </a></p>
             </div>
             <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
@@ -96,7 +96,7 @@
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="halim">
-                <div class="menu-menu_1-container">
+                <div class="menu-menu_1-container ">
                     <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
                         <li class="current-menu-item active"><a title="Trang Chủ" href="{{route('homepage')}}">Trang Chủ</a></li>
                         @foreach($category as $key => $cate)
@@ -151,9 +151,9 @@
 {{--                        <li><a title="Phim Chiếu Rạp" href="danhmuc.php">Phim Chiếu Rạp</a></li>--}}
                     </ul>
                 </div>
-                <ul class="nav navbar-nav navbar-left" style="background:#000;">
-                    <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>
-                </ul>
+{{--                <ul class="nav navbar-nav navbar-left" style="background:#000;">--}}
+{{--                    <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>--}}
+{{--                </ul>--}}
             </div>
         </nav>
         <div class="collapse navbar-collapse" id="search-form">
@@ -178,9 +178,17 @@
         <div class="row container">
             <div class="widget about col-xs-12 col-sm-4 col-md-4">
                 <div class="footer-logo">
-                    <img class="img-responsive" src="https://img.favpng.com/9/23/19/movie-logo-png-favpng-nRr1DmYq3SNYSLN8571CHQTEG.jpg" alt="Phim hay 2021- Xem phim hay nhất" />
+                    <p class=""><a href="" title="phim hay ">
+                            <img width="200" src="{{asset('/uploads/logo/'.$info->logo)}}">
+                        </a></p>
                 </div>
                 Liên hệ QC: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e5958d8c888d849ccb868aa58288848c89cb868a88">[email&#160;protected]</a>
+            </div>
+            <div class="widget about col-xs-12 col-sm-4 col-md-6">
+                <div class="footer-logo">
+                    <p class="">{{$info->description}}</p>
+                </div>
+
             </div>
         </div>
     </div>

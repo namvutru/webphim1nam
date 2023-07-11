@@ -15,9 +15,11 @@
     </div>
     <main id="main-contents" class="col-xs-12 col-sm-12 col-md-8">
         <section>
+            @include('pages.include.filter')
             <div class="section-bar clearfix">
                 <h1 class="section-title"><span>{{$cate_slug->title}}</span></h1>
             </div>
+
             <div class="halim_box">
                 @foreach($movie as $key => $movi)
                 <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">

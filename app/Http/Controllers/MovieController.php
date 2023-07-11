@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Country;
 use App\Models\Episode;
 use App\Models\Genre;
+use App\Models\Info;
 use App\Models\Movie_Genre;
 use Illuminate\Http\Request;
 use App\Models\Movie;
@@ -243,7 +244,6 @@ class MovieController extends Controller
         $movie->season = $data['season'];
         $movie->save();
     }
-
 
     public function filter_topview(Request $request){
         $data = $request->all();

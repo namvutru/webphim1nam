@@ -116,7 +116,7 @@
                                       Trailer
                                 @endif
                             </span><span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
-                            @if($movi->subtitle==1)
+                                @if($movi->subtitle==1)
                                     Thuyết minh
                                     @if($movi->season!=0)
                                          - Season {{$movi->season}}
@@ -128,6 +128,9 @@
                                             -Season {{$movi->season}}
                                     @endif
                                 @endif
+                                @if($movi->sumepisode !=1)
+                                    - Tập {{$movi->sumepisode}}
+                                    @endif
                             </span>
                             <div class="icon_overlay"></div>
                             <div class="halim-post-title-box">
