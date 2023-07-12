@@ -8,18 +8,18 @@
     <meta content="VN" name="geo.region" />
     <meta name="DC.language" scheme="utf-8" content="vi" />
     <meta name="language" content="Việt Nam">
-    <link rel="shortcut icon" href="https://www.pngkey.com/png/detail/360-3601772_your-logo-here-your-company-logo-here-png.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{asset('uploads/logo/'.$info->logo)}}" type="image/x-icon" />
     <meta name="revisit-after" content="1 days" />
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <title>Phim hay 2021 - Xem phim hay nhất</title>
-    <meta name="description" content="Phim hay 2021 - Xem phim hay nhất, xem phim online miễn phí, phim hot , phim nhanh" />
+    <title>{{$info->title}}</title>
+    <meta name="description" content="{{$info->description}}" />
     <link rel="canonical" href="">
     <link rel="next" href="" />
     <meta property="og:locale" content="vi_VN" />
-    <meta property="og:title" content="Phim hay 2020 - Xem phim hay nhất" />
-    <meta property="og:description" content="Phim hay 2020 - Xem phim hay nhất, phim hay trung quốc, hàn quốc, việt nam, mỹ, hong kong , chiếu rạp" />
+    <meta property="og:title" content="{{$info->title}}" />
+    <meta property="og:description" content="{{$info->description}}" />
     <meta property="og:url" content="" />
-    <meta property="og:site_name" content="Phim hay 2021- Xem phim hay nhất" />
+    <meta property="og:site_name" content="Vũ trụ phim- Xem phim hay nhất" />
     <meta property="og:image" content="" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="55" />
@@ -48,17 +48,17 @@
             <div class="col-md-5 col-sm-6 halim-search-form hidden-xs">
                 <div class="header-nav">
                     <div class="col-xs-12">
-                            <div class="form-group form-timkiem">
-                                <div class="input-group col-xs-12" >
-                                    <form action="{{route('tim-kiem')}}" class="d-flex" method="get">
+                        <div class="form-group form-timkiem">
+                            <div class="input-group col-xs-12" >
+                                <form action="{{route('tim-kiem')}}" class="d-flex" method="get">
                                         <span class="input-group-btn">
                                     <input  id="timkiem" type="text" name="search" class="form-control" placeholder="Tìm kiếm phim..." autocomplete="off" required><button type="submit" class="btn btn-primary" name="btnsearch">Tìm kiếm</button>
                                     </span>
 
-                                    </form>
+                                </form>
 
-                                </div>
                             </div>
+                        </div>
                         <ul class="list-group" id ="result">
 
                         </ul>
@@ -100,32 +100,32 @@
                     <ul id="menu-menu_1" class="nav navbar-nav navbar-left">
                         <li class="current-menu-item active"><a title="Trang Chủ" href="{{route('homepage')}}">Trang Chủ</a></li>
                         @foreach($category as $key => $cate)
-                        <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
+                            <li class="mega"><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>
                         @endforeach
-{{--                        <li class="mega dropdown">--}}
-{{--                            <a title="Danh mục" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Danh mục <span class="caret"></span></a>--}}
+                        {{--                        <li class="mega dropdown">--}}
+                        {{--                            <a title="Danh mục" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Danh mục <span class="caret"></span></a>--}}
 
-{{--                            <ul role="menu" class=" dropdown-menu">--}}
-{{--                                @foreach($category as $key => $cate)--}}
-{{--                                    <li><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>--}}
-{{--                                @endforeach--}}
-{{--                            </ul>--}}
+                        {{--                            <ul role="menu" class=" dropdown-menu">--}}
+                        {{--                                @foreach($category as $key => $cate)--}}
+                        {{--                                    <li><a title="{{$cate->title}}" href="{{route('category',$cate->slug)}}">{{$cate->title}}</a></li>--}}
+                        {{--                                @endforeach--}}
+                        {{--                            </ul>--}}
 
-{{--                        </li>--}}
-{{--                        <li class="mega dropdown">--}}
-{{--                            <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>--}}
-{{--                            <ul role="menu" class=" dropdown-menu">--}}
-{{--                                <li><a title="Phim 2020" href="danhmuc.php">Phim 2020</a></li>--}}
-{{--                                <li><a title="Năm 2019" href="danhmuc.php">Năm 2019</a></li>--}}
-{{--                                <li><a title="Năm 2018" href="danhmuc.php">Năm 2018</a></li>--}}
-{{--                            </ul>--}}
-{{--                        </li>--}}
+                        {{--                        </li>--}}
+                        {{--                        <li class="mega dropdown">--}}
+                        {{--                            <a title="Năm" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Năm <span class="caret"></span></a>--}}
+                        {{--                            <ul role="menu" class=" dropdown-menu">--}}
+                        {{--                                <li><a title="Phim 2020" href="danhmuc.php">Phim 2020</a></li>--}}
+                        {{--                                <li><a title="Năm 2019" href="danhmuc.php">Năm 2019</a></li>--}}
+                        {{--                                <li><a title="Năm 2018" href="danhmuc.php">Năm 2018</a></li>--}}
+                        {{--                            </ul>--}}
+                        {{--                        </li>--}}
                         <li class="mega dropdown">
                             <a title="Thể Loại" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Thể Loại <span class="caret"></span></a>
 
                             <ul role="menu" class=" dropdown-menu">
                                 @foreach($genre as $key=> $gen)
-                                <li><a title="{{$gen->title}}" href="{{route('genre',$gen->slug)}}">{{$gen->title}}</a></li>
+                                    <li><a title="{{$gen->title}}" href="{{route('genre',$gen->slug)}}">{{$gen->title}}</a></li>
                                 @endforeach
                             </ul>
 
@@ -146,14 +146,14 @@
                                 @endfor
                             </ul>
                         </li>
-{{--                        <li><a title="Phim Lẻ" href="danhmuc.php">Phim Lẻ</a></li>--}}
-{{--                        <li><a title="Phim Bộ" href="danhmuc.php">Phim Bộ</a></li>--}}
-{{--                        <li><a title="Phim Chiếu Rạp" href="danhmuc.php">Phim Chiếu Rạp</a></li>--}}
+                        {{--                        <li><a title="Phim Lẻ" href="danhmuc.php">Phim Lẻ</a></li>--}}
+                        {{--                        <li><a title="Phim Bộ" href="danhmuc.php">Phim Bộ</a></li>--}}
+                        {{--                        <li><a title="Phim Chiếu Rạp" href="danhmuc.php">Phim Chiếu Rạp</a></li>--}}
                     </ul>
                 </div>
-{{--                <ul class="nav navbar-nav navbar-left" style="background:#000;">--}}
-{{--                    <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>--}}
-{{--                </ul>--}}
+                {{--                <ul class="nav navbar-nav navbar-left" style="background:#000;">--}}
+                {{--                    <li><a href="#" onclick="locphim()" style="color: #ffed4d;">Lọc Phim</a></li>--}}
+                {{--                </ul>--}}
             </div>
         </nav>
         <div class="collapse navbar-collapse" id="search-form">
@@ -224,9 +224,9 @@
                 var expression = new RegExp(search,"i");
                 $.getJSON('/jsonfile/movie.json',function(data){
                     $.each(data,function(key,value){
-                         if(value.title.search(expression)!=-1){
-                            $('#result').append('<li style="cursor:pointer; display: flex; max-height: 200px;" class="list-group-item link-class"><img src="/uploads/movie/'+value.image+'" width="100" class="" /><div style="flex-direction: column; margin-left: 2px;"><h4 width="100%">'+value.title+'</h4><span style="display: -webkit-box; max-height: 8.2rem; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal; -webkit-line-clamp: 5; line-height: 1.6rem;" class="text-muted"></span></div></li>');
-                         }
+                        if(value.title.search(expression)!=-1){
+                            $('#result').append('<li style="cursor:pointer; display: flex; max-height: 200px;" class="list-group-item link-class"><img src="'+value.image+'" width="50" class="" /><div style="flex-direction: column; margin-left: 2px;"><h4 width="100%">'+value.title+'</h4><span style="display: -webkit-box; max-height: 8.2rem; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; white-space: normal; -webkit-line-clamp: 5; line-height: 1.6rem;" class="text-muted"></span></div></li>');
+                        }
                     });
                 })
             }
@@ -240,22 +240,22 @@
 </script>
 <script type="text/javascript">
     $('.filter-sidebar').click(function (){
-         var  hrel = $(this).attr('href');
-         if(hrel =='#day') {
+        var  hrel = $(this).attr('href');
+        if(hrel =='#day') {
             var value = 0;
-         }else if(hrel=='#week'){
+        }else if(hrel=='#week'){
             var value = 1;
-         }else{
+        }else{
             var value = 2;
         }
-         $.ajax({
-             url: "{{url('/filter-topview')}}",
-             method: "GET",
-             data: {value:value},
-             success: function (data) {
-                 $('#show'+value).html(data);
-             }
-         });
+        $.ajax({
+            url: "{{url('/filter-topview')}}",
+            method: "GET",
+            data: {value:value},
+            success: function (data) {
+                $('#show'+value).html(data);
+            }
+        });
     })
 </script>
 <script type='text/javascript' src='{{asset('js/bootstrap.min.js?ver=5.7.2')}}' id='bootstrap-js'></script>

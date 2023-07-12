@@ -209,6 +209,7 @@ class ApiController extends Controller
             $movie->status = 1;
             $movie->duration = $movi['time'];
             $movie->year = $movi['year'];
+//            $movie->trailer = $movi['trailer_url'];
             $movie->phimhot = 0;
             $movie->resolution = 0;
             $movie->subtitle = 0;

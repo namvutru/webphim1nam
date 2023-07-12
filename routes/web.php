@@ -12,6 +12,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InfoController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,6 @@ Route::get('/get-movie-leech/{slug}',[ApiController::class,'getmoviebyslug'])->n
 Route::get('/search-movie-leech',[ApiController::class,'searchmoviebyslug'])->name('searchmoviebyslug');
 Route::post('/synx-phim',[ApiController::class,'synxphim'])->name('synx-phim');
 
+Route::get ('/create-sitemap',function (){
+    return Artisan::call('sitemap:create');
+});
