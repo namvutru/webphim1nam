@@ -24,6 +24,18 @@
                             </div>
                                 <input type="submit" value="Tìm kiếm">
                             </form>
+                            <form action="{{route('synx-phim-by-page')}}" method="post" >
+                                @csrf
+                                <div class="form-group col-md-3">
+                                    <label id="slug">Page1</label>
+                                    <input type="text" name="page1" class="form-control" >
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label id="slug">Page2</label>
+                                    <input type="text" name="page2" class="form-control" >
+                                </div>
+                                <button type="submit" >Synx this pages </button>
+                            </form>
 
                         <table class="table" id="tablephim">
                             <thead>

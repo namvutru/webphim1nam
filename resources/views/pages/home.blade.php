@@ -98,8 +98,9 @@
                 </a>
             </div>
             <div id="halim-advanced-widget-2-ajax-box" class="halim_box">
+                @php $x=0 @endphp
                 @foreach($movie_cate as $key=> $movi)
-                    @php $x=0 @endphp
+
                     @if($movi->category_id ==$cate_home->id)
                 <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-37606">
                     <div class="halim-item">
@@ -149,8 +150,9 @@
                             @break
                         @endif
                     @endif
-                    @php $x=0 @endphp
+
                 @endforeach
+                @php $x=0 @endphp
 
             </div>
         </section>

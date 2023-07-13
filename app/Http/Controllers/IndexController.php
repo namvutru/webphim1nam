@@ -38,7 +38,7 @@ class IndexController extends Controller
         $country = Country::all();
         $genre = Genre::all();
         $gen_slug = Genre::where('slug',$slug)->first();
-        $movie_genre = Movie_Genre::with('movie','genre')->where('genre_id',$gen_slug->id)->paginate(20);
+        $movie_genre = Movie_Genre::with('movie','genre')->where('genre_id',$gen_slug->id)->orderBy('id','desc')->paginate(20);
 
         return view('pages.genre',compact('info','category','genre','country','gen_slug','movie_genre','phimhot_sidebar','phimhot_trailer'));
     }

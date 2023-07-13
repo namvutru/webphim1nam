@@ -19,7 +19,7 @@
     <meta property="og:title" content="{{$info->title}}" />
     <meta property="og:description" content="{{$info->description}}" />
     <meta property="og:url" content="" />
-    <meta property="og:site_name" content="Vũ trụ phim- Xem phim hay nhất" />
+    <meta property="og:site_name" content="{{$info->title}}" />
     <meta property="og:image" content="" />
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="55" />

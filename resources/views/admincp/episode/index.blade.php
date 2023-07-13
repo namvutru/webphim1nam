@@ -59,7 +59,12 @@
     </div>
 @endsection
 <script>
-    function confirmdelete() {
+
+        $(document).ready( function () {
+        $('#tablephim').DataTable();
+    } );
+
+        function confirmdelete() {
         if(!confirm("Are You Sure to delete this"))
             event.preventDefault();
     }

@@ -14,6 +14,11 @@
                         @endif
                         <p>Tên phim : {{$movie->title}}</p>
                         <p>Số tập : {{$movie->sumepisode}}</p>
+                            @if($checkmovie)
+                                    <p >Phim này đã được thêm</p>
+                                @else
+                                <p>Phim này chưa được thêm</p>
+                            @endif
 
 
                             <form action="{{route('synx-phim')}}" method="post" >
