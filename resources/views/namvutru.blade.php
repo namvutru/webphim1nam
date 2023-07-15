@@ -11,7 +11,12 @@
     <link rel="shortcut icon" href="{{asset('uploads/logo/'.$info->logo)}}" type="image/x-icon" />
     <meta name="revisit-after" content="1 days" />
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <title>{{$info->title}}</title>
+    <title>
+        @if(isset($movie_here))
+            {{$movie_here->title}} -
+        @endif
+        {{$info->title}}
+    </title>
     <meta name="description" content="{{$info->description}}" />
     <link rel="canonical" href="">
     <link rel="next" href="" />

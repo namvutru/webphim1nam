@@ -28,7 +28,7 @@
 
                                 {{--                                <th scope="col">Description</th>--}}
                                 <th scope="col">Category</th>
-                                <th scope="col">Genre</th>
+{{--                                <th scope="col">Genre</th>--}}
                                 <th scope="col">Country</th>
                                 <th scope="col">Hot Movie</th>
                                 <th scope="col">Resolution</th>
@@ -57,13 +57,13 @@
                                     {{--                                    <td>{{$movi->description}}</td>--}}
                                     <td>{{$movi->tags}}</td>
                                     <td>{{$movi->category->title}}</td>
-                                    <td>
-                                            @foreach($list_movie_genre as $key =>$movi_gen)
-                                                @if($movi_gen->movie_id == $movi->id)
-                                                <span class="badge badge-dark">{{$movi_gen->genre->title}}</span>
-                                               @endif
-                                            @endforeach
-                                    </td>
+{{--                                    <td>--}}
+{{--                                            @foreach($list_movie_genre as $key =>$movi_gen)--}}
+{{--                                                @if($movi_gen->movie_id == $movi->id)--}}
+{{--                                                <span class="badge badge-dark">{{$movi_gen->genre->title}}</span>--}}
+{{--                                               @endif--}}
+{{--                                            @endforeach--}}
+{{--                                    </td>--}}
                                     <td>{{$movi->country->title}}</td>
                                     @if($movi->phimhot==1)
                                         <td>Hot</td>
@@ -156,7 +156,6 @@
                             @endforeach
                             </tbody>
                         </table>
-
                     </div>
 
                 </div>

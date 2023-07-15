@@ -62,6 +62,8 @@ Route::get('/get-movie-leech/{slug}',[ApiController::class,'getmoviebyslug'])->n
 Route::get('/search-movie-leech',[ApiController::class,'searchmoviebyslug'])->name('searchmoviebyslug');
 Route::post('/synx-phim',[ApiController::class,'synxphim'])->name('synx-phim');
 Route::post('/synx-phim-by-page',[ApiController::class,'synx_phim_by_page'])->name('synx-phim-by-page');
+Route::get('/hide18',[ApiController::class,'tatphim18'])->name('hide18');
+Route::get('/hidevn',[ApiController::class,'tatphimvn'])->name('hidevn');
 Route::get ('/create-sitemap',function (){
     return Artisan::call('sitemap:create');
 });

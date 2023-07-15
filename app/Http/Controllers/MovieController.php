@@ -22,7 +22,8 @@ class MovieController extends Controller
     public function index()
     {
         $list = Movie::with('category','movie_genre','country')->orderBy('id','desc')->get();
-        $list_movie_genre = Movie_Genre::with('movie','genre')->orderBy('id','desc')->get();       //
+//        $list1 = Movie::with('category','movie_genre','country')->orderBy('id','desc')->get();
+//        $list_movie_genre = Movie_Genre::with('movie','genre')->orderBy('id','desc')->get();       //
         $path = public_path()."/jsonfile/";
         if(!is_dir($path)){
             if (!mkdir($path, 0777, true) && !is_dir($path)) {
@@ -31,7 +32,7 @@ class MovieController extends Controller
         }
         File::put($path.'movie.json',json_encode($list));
 
-        return view('admincp.movie.index',compact('list','list_movie_genre'));
+        return view('admincp.movie.index',compact('list'));
 
 
     }
