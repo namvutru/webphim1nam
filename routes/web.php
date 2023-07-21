@@ -53,14 +53,17 @@ Route::resource('genre', GenreController::class);
 Route::resource('country', CountryController::class);
 Route::resource('episode', EpisodeController::class);
 Route::resource('movie',MovieController::class);
-Route::resource('info', \App\Http\Controllers\InfoController::class);
+Route::resource('info', InfoController::class);
 
-
+Route::get('/episodebymovie/{movie_id}',[EpisodeController::class ,'episodebymovie'])->name('episodebymovie');
 //api
 Route::get('/get-list-movie-leech-from-api/{page}',[ApiController::class,'getDataFromApi'])->name('getphimleech');
 Route::get('/get-movie-leech/{slug}',[ApiController::class,'getmoviebyslug'])->name('getmoviebyslug');
 Route::get('/search-movie-leech',[ApiController::class,'searchmoviebyslug'])->name('searchmoviebyslug');
 Route::post('/synx-phim',[ApiController::class,'synxphim'])->name('synx-phim');
+Route::post('/editbyslug',[MovieController::class,'editbyslug'])->name('editbyslug');
+Route::get('/search',[MovieController::class,'search'])->name('search');
+
 Route::post('/synx-phim-by-page',[ApiController::class,'synx_phim_by_page'])->name('synx-phim-by-page');
 Route::get('/hide18',[ApiController::class,'tatphim18'])->name('hide18');
 Route::get('/hidevn',[ApiController::class,'tatphimvn'])->name('hidevn');

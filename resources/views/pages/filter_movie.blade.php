@@ -21,7 +21,8 @@
                 </div>
 
                 <div class="halim_box">
-                    @foreach($movie as $key => $movi)
+                    @foreach($movie->take(60) as $key => $movi)
+
                         <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
                             <div class="halim-item">
                                 <a class="halim-thumb" href="{{route('movie',$movi->slug)}}" title="{{$movi->title}}">
@@ -63,12 +64,13 @@
                                 </a>
                             </div>
                         </article>
+
                     @endforeach
 
                 </div>
                 <div class="clearfix"></div>
                 <div class="text-center">
-                    {!!$movie->links("pagination::bootstrap-4")!!}
+
                 </div>
             </section>
         </main>

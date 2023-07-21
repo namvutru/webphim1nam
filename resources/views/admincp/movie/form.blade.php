@@ -13,7 +13,23 @@
                             </div>
                         @endif
                             <a href="{{route('movie.index')}}">Liệt kê danh sách phim</a>
+                            <p>------------Trỏ đến phim--------------</p>
+                            <form action="{{route('editbyslug')}}" method="post" >
+                                @csrf
+                                <div class="form-group">
+                                    <label id="title">Nhập tên phim chính xác </label>
+                                    <input type="text" name="title" id="slug"  class="form-control" onkeyup="ChangeToSlug()" placeholder="...">
+                                </div>
+                                <div class="form-group">
+                                    <label id="slug">Slug</label>
+                                    <input type="text" name="slug"  id="convert_slug" class="form-control" >
+                                </div>
+                                <input type="submit" value="Tìm kiếm">
+                            </form>
+
                         @if(!isset($movie))
+
+                                <p>---------------------------Thêm phim mới--------------------------</p>
                             <form action="{{route('movie.store')}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="form-group">
@@ -39,6 +55,7 @@
                                 <div class="form-group">
                                     <label>Image</label>
                                     <input type="file" name="image"  class="form-control-file"  >
+                                    <input type="text" name="imagelink"   class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label >Sum Episode</label>
@@ -111,6 +128,9 @@
                                 <input type="submit" class="btn btn-success" value="Thêm dữ liệu">
                             </form>
                         @else
+                                <a href="{{route('movie.create')}}">Thêm phim mới</a>
+                                <p>-----Thông tin phim {{$movie->title}} -----</p>
+                            <a href="{{route('episodebymovie',$movie->id)}}" class="btn bg-warning">Danh sách tập phim</a>
                             <form action="{{url('movie',['id'=> $movie->id])}}" enctype="multipart/form-data" method="post" >
                                 @method('PUT')
                                 @csrf
@@ -137,12 +157,17 @@
                                 <div class="form-group">
                                     <label>Image</label>
 
+
                                     @if($movie)
                                         <input type="file" name="image"  class="form-control-file" accept="{{asset('uploads/movie/'.$movie->image)}}" >
                                         <img width="60" src="{{asset('uploads/movie/'.$movie->image)}}">
+                                        <input type="text" name="imagelink" value="{{$movie->image}}"   class="form-control" >
                                     @else
                                         <input type="file" name="image"  class="form-control-file"  >
+                                        <input type="text" name="imagelink"  class="form-control" >
                                     @endif
+
+
                                 </div>
                                 <div class="form-group">
                                     <label >SumEpisode</label>

@@ -21,11 +21,11 @@
                 <a class="nav-link" href="{{route('country.create')}}">Quốc gia</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('movie.index')}}">Phim</a>
+                <a class="nav-link" href="{{route('movie.create')}}">Phim</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('episode.create')}}">Tập phim</a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" href="{{route('episode.create')}}">Tập phim</a>--}}
+{{--            </li>--}}
             <li class="nav-item">
                 <a class="nav-link" href="{{route('getphimleech','1')}}">Clone phim</a>
             </li>
@@ -44,8 +44,8 @@
 {{--                <a class="nav-link disabled" href="#">Disabled</a>--}}
 {{--            </li>--}}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="....." aria-label="Search">
+        <form  action="{{route('search')}}" method="get" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="search" type="search" placeholder="....." aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm phim</button>
         </form>
     </div>

@@ -14,7 +14,7 @@
                         @endif
                         <a href="{{ route('movie.create')}}">Thêm phim</a>
 
-                        <table class="table" id="tablephim">
+                        <table class="table" id="">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -151,12 +151,18 @@
                                             <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirmdelete();"/>
                                         </form>
                                         <a href="{{route('movie.edit',$movi->id)}}" class="btn bg-warning">Edit</a>
+                                        <a href="{{route('episodebymovie',$movi->id)}}" class="btn bg-warning">Episode</a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
+                @if(isset($search))
+                        {!!$list ->appends(['search' => $search])->links("pagination::bootstrap-4")!!}
+                    @else
+                        {!!$list ->links("pagination::bootstrap-4")!!}
+                    @endif
 
                 </div>
             </div>

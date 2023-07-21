@@ -21,7 +21,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $list = Movie::with('category','movie_genre','country')->orderBy('id','desc')->get();
+        $list = Movie::with('category','movie_genre','country')->orderBy('id','desc')->paginate(40);
 //        $list1 = Movie::with('category','movie_genre','country')->orderBy('id','desc')->get();
 //        $list_movie_genre = Movie_Genre::with('movie','genre')->orderBy('id','desc')->get();       //
         $path = public_path()."/jsonfile/";
@@ -84,6 +84,9 @@ class MovieController extends Controller
 
         $movie->datecreate = Carbon::now('Asia/Ho_Chi_Minh');
         $movie->dateupdate = Carbon::now('Asia/Ho_Chi_Minh');
+        if($data['imagelink']!=''){
+            $movie->image = $data['imagelink'];
+        }else{
         $get_image = $request->file('image');
         $path = 'uploads/movie/';
         if($get_image){
@@ -93,6 +96,7 @@ class MovieController extends Controller
             $get_image->move($path,$new_image);
 //            File::copy($path.$new_image,$path_gallery.$new_image);
             $movie->image = $new_image;
+        }
         }
         $movie->save();
         $genre = Genre::all();
@@ -171,18 +175,22 @@ class MovieController extends Controller
         $movie->sumepisode= $data['sumepisode'];
         $movie->dateupdate = Carbon::now('Asia/Ho_Chi_Minh');
 
-        $get_image = $request->file('image');
-        $path = 'uploads/movie/';
-        if($get_image){
-            if(file_exists('uploads/movie/'.$movie->image)){
-                unlink('uploads/movie/'.$movie->image);
-            }
-            $get_name_image = $get_image->getClientOriginalName();
-            $name_image = current(explode('.',$get_name_image));
-            $new_image = $name_image.rand(0,9999).'.'.$get_image->getClientOriginalExtension();
-            $get_image->move($path,$new_image);
+        if($data['imagelink']!=''){
+            $movie->image = $data['imagelink'];
+        }else {
+            $get_image = $request->file('image');
+            $path = 'uploads/movie/';
+            if ($get_image) {
+                if (file_exists('uploads/movie/' . $movie->image)) {
+                    unlink('uploads/movie/' . $movie->image);
+                }
+                $get_name_image = $get_image->getClientOriginalName();
+                $name_image = current(explode('.', $get_name_image));
+                $new_image = $name_image . rand(0, 9999) . '.' . $get_image->getClientOriginalExtension();
+                $get_image->move($path, $new_image);
 //            File::copy($path.$new_image,$path_gallery.$new_image);
-            $movie->image = $new_image;
+                $movie->image = $new_image;
+            }
         }
         $movie->save();
         $movie_genre = Movie_Genre::where('movie_id',$movie->id)->get();
@@ -227,6 +235,30 @@ class MovieController extends Controller
         return  redirect()->back();
     }
 
+
+    public function editbyslug(Request $request)
+    {
+        //
+        $data = $request->all();
+        $slug = $data['slug'];
+        $movie = Movie::where('slug',$slug)->first();
+        $list_movie_genre = Movie_Genre::with('movie','genre')->where('movie_id',$movie->id)->orderBy('id','desc')->get();
+        $category = Category::all();
+        $genre = Genre::all();
+        $country = Country::all();
+        return view ('admincp.movie.form',compact('category','genre','country','movie','list_movie_genre'));
+    }
+
+    public function search(Request $request)
+    {
+        //
+        $data = $request->all();
+        $search = $data['search'];
+        $list = Movie::with('category','movie_genre','country')->where('title','LIKE','%'.$search.'%')->paginate(40);
+        return view ('admincp.movie.index',compact('list','search'));
+    }
+
+
     public function update_year(Request $request){
         $data = $request->all();
         $movie = Movie::find($data['id']);
@@ -245,6 +277,8 @@ class MovieController extends Controller
         $movie->season = $data['season'];
         $movie->save();
     }
+
+
 
     public function filter_topview(Request $request){
         $data = $request->all();

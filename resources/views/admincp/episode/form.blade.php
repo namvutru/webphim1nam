@@ -12,71 +12,87 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{route('episode.index')}}">Liệt kê danh sách tập phim</a>
+
                         @if(!isset($episode))
                             <form action="{{route('episode.store')}}" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label id="movie_id">Select Movie</label>
-                                        <select class="form-select select-movie" name="movie_id" >
-                                            <option>------Chọn phim-----</option>
-                                            @foreach($list_movie as $key=>$movi)
-                                                <option value="{{$movi->id}}">{{$movi->title}}</option>
-                                            @endforeach
+                                    <label >Tên phim: {{$movie->title}}</label>
+                                    <input type="hidden" name="movie_id" value="{{$movie->id}}">
 
-                                        </select>
                                 </div>
                                 <div class="form-group">
                                     <label id="linkphim">Link Phim</label>
                                     <input type="text" name="linkphim" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                <label>Chọn tập</label>
-                                <select id="select-show-movie" name="episode" class="form-control">
-
-                                </select>
+                                    <label id=>Tập phim</label>
+                                    <input type="text" name="episode" class="form-control">
                                 </div>
 
                                 <input type="submit" class="btn btn-success" value="Thêm Tập phim">
                             </form>
                         @else
+                                <a href="{{route('episodebymovie',$movie->id)}}">Thêm tập phim</a>
                             <form action="{{url('episode',['id'=> $episode->id])}}" enctype="multipart/form-data" method="post" >
                                 @method('PUT')
                                 @csrf
 
 
                                 <div class="form-group">
-                                    <label id="movie_id">Select Movie</label>
-                                    <select class="form-select" name="movie_id" >
-                                        @foreach($list_movie as $key=>$movi)
-                                            @if($movi->id == $episode->movie_id)
-                                                <option value="{{$movi->id}}" selected>{{$movi->title}}</option>
-                                            @else
-                                                <option value="{{$movi->id}}">{{$movi->title}}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
+                                    <div class="form-group">
+                                        <label >Tên phim: {{$movie->title}}</label>
+                                        <input type="hidden" name="movie_id" value="{{$movie->id}}">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label id="linkphim">Link Phim</label>
                                     <input type="text" name="linkphim" value="{{$episode->linkphim}}" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Chọn tập</label>
-                                    <select id="select-show-movie" name="episode" class="form-control">
-                                        @for($i=1;$i<=$episode->movie->sumepisode;$i++)
-                                            @if($episode->episode == $i)
-                                                <option value="{{$i}}" selected>{{$i}}</option>
-
-                                            @else
-                                                <option value="{{$i}}" >{{$i}}</option>
-                                            @endif
-                                        @endfor
-                                    </select>
+                                    <label id=>Tập phim</label>
+                                    <input type="text" value="{{$episode->episode}}" name="episode" class="form-control">
                                 </div>
                                 <input type="submit" class="btn btn-success" value="Cập nhật Tập Phim">
                             </form>
+                            <span>----------------------Danh sách tập phim----------------------</span>
                         @endif
+                            <table class="table" id="tablephim">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title Movie</th>
+                                    <th scope="col">Link Episode</th>
+                                    <th scope="col">Sum Episode</th>
+                                    <th scope="col">Episode</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Manage</th>
+
+                                </tr>
+                                </thead>
+                                <tbody class="order_position">
+
+                                @foreach($list_episode as $key =>$epi)
+
+                                    <tr id="{{$epi->id}}">
+                                        <th scope="row">{{$key}}</th>
+                                        <td>{{$epi->movie->title}}</td>
+                                        <td>{{$epi->linkphim}}</td>
+                                        <td>{{$epi->movie->sumepisode}}</td>
+                                        <td>{{$epi->episode}}</td>
+                                        <td></td>
+                                        <td>
+                                            <form action="{{url('episode',['id'=> $epi->id])}}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirmdelete();"/>
+                                            </form>
+                                            <a href="{{route('episode.edit',$epi->id)}}" class="btn bg-warning">Edit</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         {{--                        <table class="table" id="tablephim">--}}
                         {{--                            <thead>--}}
                         {{--                            <tr>--}}

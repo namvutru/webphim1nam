@@ -44,6 +44,12 @@ class EpisodeController extends Controller
     {
         //
         $data = $request->all();
+        $movie = Movie::find($data['movie_id']);
+        $listepi = Episode::where('movie_id',$data['movie_id'])->get();
+        if($movie->sumepisode <= count($listepi)){
+            $movie->sumepisode= count($listepi)+1;
+            $movie->save();
+        }
         $episode = new Episode();
         $episode->movie_id=  $data['movie_id'];
         $episode->linkphim=  $data['linkphim'];
@@ -74,9 +80,10 @@ class EpisodeController extends Controller
     public function edit($id)
     {
         //
-        $list_movie = Movie::orderby('id','desc')->get();
-        $episode =Episode::with('movie')->find($id);
-        return view('admincp.episode.form',compact('list_movie','episode'));
+        $episode =Episode::find($id);
+        $movie= Movie::find($episode->movie_id);
+        $list_episode = Episode::where('movie_id',$episode->movie_id)->orderBy('movie_id','desc')->get();
+        return view('admincp.episode.form',compact('episode','movie','list_episode'));
     }
 
     /**
@@ -122,5 +129,11 @@ class EpisodeController extends Controller
         }
         echo $output;
 
+    }
+
+    public function episodebymovie($movie_id){
+        $movie = Movie::find($movie_id);
+        $list_episode = Episode::where('movie_id',$movie_id)->orderBy('movie_id','desc')->get();
+        return view('admincp.episode.form',compact('list_episode','movie'));
     }
 }

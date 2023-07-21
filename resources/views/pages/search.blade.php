@@ -67,8 +67,9 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="text-center">
-                    {!!$movie->links("pagination::bootstrap-4")!!}
+                    {!!$movie->appends(['search' => $search]) ->links("pagination::bootstrap-4")!!}
                 </div>
+                
             </section>
         </main>
         @include('pages.include.sidebar')

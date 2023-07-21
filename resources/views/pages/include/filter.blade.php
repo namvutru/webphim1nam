@@ -28,12 +28,20 @@
                         @endif
                     @endforeach
                 </select>
-{{--                <select name="genre" class="form-control" aria-label=".form-select-sm example">--}}
-{{--                    <option value="" >Chọn thể loại</option>--}}
-{{--                    @foreach($genre as $key =>$gen)--}}
-{{--                        <option value="{{$gen->id}}">{{$gen->title}}</option>--}}
-{{--                    @endforeach--}}
-{{--                </select>--}}
+                <select name="genre" class="form-control" aria-label=".form-select-sm example">
+                    <option value="" >Chọn thể loại</option>
+                    @foreach($genre as $key =>$gen)
+                        @if(isset($genre_filter))
+                            @if($genre_filter==$gen->id)
+                                <option value="{{$gen->id}}" selected>{{$gen->title}}</option>
+                            @else
+                                <option value="{{$gen->id}}">{{$gen->title}}</option>
+                            @endif
+                        @else
+                            <option value="{{$gen->id}}">{{$gen->title}}</option>
+                        @endif
+                    @endforeach
+                </select>
                 <select name="country" class="form-control" aria-label=".form-select-sm example">
                     <option value="">Chọn quốc gia</option>
                     @foreach($country as $key =>$coun)
