@@ -187,11 +187,15 @@ class IndexController extends Controller
 
         $movie = new Collection();
         $lmovie = Movie::with('movie_genre')->where('category_id','LIKE','%'.$category_filter.'%')->where('country_id','LIKE','%'.$country_filter.'%')->where('year','LIKE','%'.$year_filter.'%')->orderBy('dateupdate','desc')->where('status',1)->get();
+        $x=0;
         foreach ($lmovie as $key => $movi){
+
             $check_movie_genre = Movie_Genre::where('movie_id',$movi->id)->where('genre_id' ,'LIKE' ,'%'.$genre_filter.'%')->first();
             if(isset($check_movie_genre)){
                 $movie->push($movi);
+                $x++;
             }
+            if($x==60) break;
         }
         return view('pages.filter_movie',compact('info','category','genre','country','movie','phimhot_sidebar','phimhot_trailer','category_filter','country_filter','year_filter','genre_filter'));
     }

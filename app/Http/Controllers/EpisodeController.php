@@ -47,12 +47,12 @@ class EpisodeController extends Controller
         $movie = Movie::find($data['movie_id']);
         $listepi = Episode::where('movie_id',$data['movie_id'])->get();
         if($movie->sumepisode <= count($listepi)){
-            $movie->sumepisode= count($listepi)+1;
+            $movie->sumepisode = count($listepi)+1;
             $movie->save();
         }
         $episode = new Episode();
         $episode->movie_id=  $data['movie_id'];
-        $episode->linkphim=  $data['linkphim'];
+        $episode->linkphim= '<iframe class="embed-responsive-item" src="' . $data['linkphim'] . '" allowfullscreen></iframe>';
         $episode->episode=  $data['episode'];
         $episode->created_at = Carbon::now('Asia/Ho_Chi_Minh');
         $episode->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
@@ -98,11 +98,16 @@ class EpisodeController extends Controller
         //
         $data = $request->all();
         $episode =  Episode::find($id);
+
         $episode->movie_id=  $data['movie_id'];
         $episode->linkphim=  $data['linkphim'];
         $episode->episode=  $data['episode'];
         $episode->updated_at = Carbon::now('Asia/Ho_Chi_Minh');
+        $movie = Movie::find($data['movie_id']);
+        $movie->dateupdate = Carbon::now('Asia/Ho_Chi_Minh');
+        $movie->save();
         $episode->save();
+
         return redirect()->back();
     }
 

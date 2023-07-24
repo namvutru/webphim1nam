@@ -5,7 +5,7 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-6">
-                        <div class="yoast_breadcrumb hidden-xs"><span><span><a href="">{{$coun_slug->title}}</a> » <span class="breadcrumb_last" aria-current="page">2020</span></span></span></div>
+                        <div class="yoast_breadcrumb hidden-xs"><span><span><a href="">{{$coun_slug->title}}</a> » <span class="breadcrumb_last" aria-current="page"></span></span></span></div>
                     </div>
                 </div>
             </div>

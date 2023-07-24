@@ -87,7 +87,7 @@
                                 @if($movie->sumepisode!=1)
                                 <li class="list-info-group-item"><span>Tập phim mới nhất</span> :
                                     @foreach($episode_new  as $key => $epi)
-                                    <a href="" rel="tag">Tập {{$epi->episode}}</a>
+                                    <a href="{{url('/xem-phim/'.$movie->slug.'/tap-'.$epi->episode)}}" rel="tag">Tập {{$epi->episode}}</a>
                                     @endforeach
                                 </li>
                                 @endif

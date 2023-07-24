@@ -34,7 +34,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label >Title</label>
-                                    <input type="text" name="title" id="slug"  class="form-control" onkeyup="ChangeToSlug()" placeholder="...">
+                                    <input type="text" name="title" id="slug1"  class="form-control" onkeyup="ChangeToSlug1()" placeholder="...">
                                 </div>
                                 <div class="form-group">
                                     <label >Origin Title</label>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label >Slug</label>
-                                    <input  type="text" name="slug"  id="convert_slug" class="form-control" >
+                                    <input  type="text" name="slug"  id="convert_slug1" class="form-control" >
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
@@ -136,7 +136,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label id="title">Title</label>
-                                    <input type="text" name="title" id="slug" value="{{$movie->title}}"  class="form-control" onkeyup="ChangeToSlug()" placeholder="...">
+                                    <input type="text" name="title" id="slug1" value="{{$movie->title}}"  class="form-control" onkeyup="ChangeToSlug1()" placeholder="...">
                                 </div>
                                 <div class="form-group">
                                     <label >Origin Title</label>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label id="slug">Slug</label>
-                                    <input type="text" name="slug"  id="convert_slug" value="{{$movie->slug}}" class="form-control"  >
+                                    <input type="text" name="slug"  id="convert_slug1" value="{{$movie->slug}}" class="form-control"  >
                                 </div>
                                 <div class="form-group">
                                     <label>Image</label>
