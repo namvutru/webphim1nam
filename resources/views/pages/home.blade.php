@@ -61,10 +61,10 @@
                             @endif
                         </span>
                         <span class="episode"><i class="fa fa-play" aria-hidden="true"></i>
-                           @if($phimh->subtitle==1)
+                          @if($phimh->subtitle==1)
                                 Thuyết minh
                                 @if($phimh->season!=0)
-                                    - Sesion {{$movi->season}}
+                                    - Season {{$phimh->season}}
                                 @endif
 
                             @else
@@ -72,6 +72,9 @@
                                 @if($phimh->season!=0)
                                     -Season {{$phimh->season}}
                                 @endif
+                            @endif
+                            @if($phimh->sumepisode !=1)
+                                - Tập {{$phimh->sumepisode}}
                             @endif
                         </span> <div class="icon_overlay"></div>
                         <div class="halim-post-title-box">

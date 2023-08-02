@@ -94,16 +94,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <button type="button" class="navbar-toggle collapsed pull-right expand-search-form" data-toggle="collapse" data-target="#search-form" aria-expanded="false">
-                    <span class="hl-search" aria-hidden="true"></span>
-                </button>
-                <button type="button" class="navbar-toggle collapsed pull-right get-bookmark-on-mobile">
-                    Bookmarks<i class="hl-bookmark" aria-hidden="true"></i>
-                    <span class="count">0</span>
-                </button>
-                <button type="button" class="navbar-toggle collapsed pull-right get-locphim-on-mobile">
-                    <a href="javascript:;" id="expand-ajax-filter" style="color: #ffed4d;">Lọc <i class="fas fa-filter"></i></a>
-                </button>
+{{--                <button type="button" class="navbar-toggle collapsed pull-right expand-search-form" data-toggle="collapse" data-target="#search-form" aria-expanded="false">--}}
+{{--                    <span class="hl-search" aria-hidden="true"></span>--}}
+{{--                </button>--}}
+{{--                <button type="button" class="navbar-toggle collapsed pull-right get-bookmark-on-mobile">--}}
+{{--                    Bookmarks<i class="hl-bookmark" aria-hidden="true"></i>--}}
+{{--                    <span class="count">0</span>--}}
+{{--                </button>--}}
+{{--                <button type="button" class="navbar-toggle collapsed pull-right get-locphim-on-mobile">--}}
+{{--                    <a href="javascript:;" id="expand-ajax-filter" style="color: #ffed4d;">Lọc <i class="fas fa-filter"></i></a>--}}
+{{--                </button>--}}
             </div>
             <div class="collapse navbar-collapse" id="halim">
                 <div class="menu-menu_1-container ">

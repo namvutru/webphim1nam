@@ -48,6 +48,7 @@ class EpisodeController extends Controller
         $listepi = Episode::where('movie_id',$data['movie_id'])->get();
         if($movie->sumepisode <= count($listepi)){
             $movie->sumepisode = count($listepi)+1;
+            $movie->dateupdate =Carbon::now('Asia/Ho_Chi_Minh');
             $movie->save();
         }
         $episode = new Episode();
