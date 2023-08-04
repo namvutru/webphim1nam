@@ -21,6 +21,8 @@
                 </div>
                 <div class="halim_box">
                     @foreach($movie_genre as $key => $movi_gen)
+                        @if(isset($movi_gen->movie->status))
+
                         @if($movi_gen->movie->status==1)
                         <article class="col-md-3 col-sm-3 col-xs-6 thumb grid-item post-27021">
                             <div class="halim-item">
@@ -62,6 +64,7 @@
                                 </a>
                             </div>
                         </article>
+                        @endif
                         @endif
                     @endforeach
 
