@@ -71,10 +71,10 @@ class CreateSiteMap extends Command
         $movie = Movie::with('episode')->orderBy('id','desc')->get();
         foreach($movie as $key=> $movi){
             $sitemap->add(env('APP_URL')."phim/{$movi->slug}",Carbon::now('Asia/Ho_Chi_Minh'),0.6,'daily');
-            foreach($movi->episode as $key1 =>$epi){
-                $sitemap->add(env('APP_URL')."xem-phim/{$movi->slug}/tap-{$epi->episode}",Carbon::now('Asia/Ho_Chi_Minh'),0.6,'daily');
-
-            }
+//            foreach($movi->episode as $key1 =>$epi){
+//                $sitemap->add(env('APP_URL')."xem-phim/{$movi->slug}/tap-{$epi->episode}",Carbon::now('Asia/Ho_Chi_Minh'),0.6,'daily');
+//
+//            }
         }
         $years = range(Carbon::now('Asia/Ho_Chi_Minh')->year ,1970);
         foreach ($years as $year){

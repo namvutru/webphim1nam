@@ -64,7 +64,9 @@
                                 </a>
                             </div>
                         </article>
+
                         @endif
+                            
                         @endif
                     @endforeach
 
